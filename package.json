@@ -1,0 +1,22 @@
+{
+  "name": "database_containers",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "mssql19": "docker-compose up -f mssql_2019/docker-compose.yml -d",
+    "mssql19:down": "docker-compose down -f mssql_2019/docker-compose.yml",
+    "mssql19:rebuild": "yarn mssql19:down && yarn mssql19",
+
+    "postgres12": "docker-compose up -f postgres_12/docker-compose.yml -d",
+    "psql12": "yarn postgres12",
+    "postgres12:down": "docker-compose down -f postgres_12/docker-compose.yml",
+    "psql12:down": "yarn postgres12:down",
+    "postgres12:rebuild": "yarn postgres12:down && yarn postgres12",
+    "psql12:rebuild": "yarn postgres12:rebuild",
+
+    "up": "yarn mssql19 && yarn postgres12",
+    "down": "yarn mssql19:down && yarn postgres12:down",
+    "rebuild": "yarn down && yarn up"
+  }
+}

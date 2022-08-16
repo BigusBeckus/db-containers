@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  mssql_2019:
+    image: 'mcr.microsoft.com/mssql/server:2019-latest'
+    container_name: mssql_server
+    ports:
+      - '1433:1433'
+    volumes:
+      - ${MSSQL_VOLUME_PATH}:/var/opt/msssql
+    restart: always
+    environment:
+      - ACCEPT_EULA=${ACCEPT_EULA}
+      - SA_PASSWORD=${SA_PASSWORD}

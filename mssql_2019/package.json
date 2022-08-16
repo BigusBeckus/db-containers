@@ -1,0 +1,15 @@
+{
+  "name": "mssql_2019",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "docker-compose up -d",
+    "dev": "docker-compose up -d",
+    "down": "docker-compose down",
+    "rebuild": "docker-compose down && docker-compose up -d"
+  },
+  "dependencies": {
+    "sql-cli": "^0.6.2"
+  }
+}
