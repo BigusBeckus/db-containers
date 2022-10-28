@@ -4,19 +4,26 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "mssql19": "docker-compose up -f mssql_2019/docker-compose.yml -d",
-    "mssql19:down": "docker-compose down -f mssql_2019/docker-compose.yml",
-    "mssql19:rebuild": "yarn mssql19:down && yarn mssql19",
+    "mssql19": "docker-compose -p 'mssql19_db' -f mssql_2019/docker-compose.yml up -d",
+    "mssql19:down": "docker-compose -p 'mssql19_db' -f mssql_2019/docker-compose.yml down",
+    "mssql19:rebuild": "pnpm run mssql19:down && pnpm run mssql19",
 
-    "postgres12": "docker-compose up -f postgres_12/docker-compose.yml -d",
-    "psql12": "yarn postgres12",
-    "postgres12:down": "docker-compose down -f postgres_12/docker-compose.yml",
-    "psql12:down": "yarn postgres12:down",
-    "postgres12:rebuild": "yarn postgres12:down && yarn postgres12",
-    "psql12:rebuild": "yarn postgres12:rebuild",
+    "postgres12": "docker-compose -p 'psql12_db' -f postgres_12/docker-compose.yml up -d",
+    "psql12": "pnpm run postgres12",
+    "postgres12:down": "docker-compose -p 'psql12_db' -f postgres_12/docker-compose.yml down",
+    "psql12:down": "pnpm run postgres12:down",
+    "postgres12:rebuild": "pnpm run postgres12:down && pnpm run postgres12",
+    "psql12:rebuild": "pnpm run postgres12:rebuild",
 
-    "up": "yarn mssql19 && yarn postgres12",
-    "down": "yarn mssql19:down && yarn postgres12:down",
-    "rebuild": "yarn down && yarn up"
+    "postgres15": "docker-compose -p 'psql15_db' -f postgres_15/docker-compose.yml up -d",
+    "psql15": "pnpm run postgres15",
+    "postgres15:down": "docker-compose -p 'psql15_db' -f postgres_15/docker-compose.yml down",
+    "psql15:down": "pnpm run postgres15:down",
+    "postgres15:rebuild": "pnpm run postgres15:down && pnpm run postgres15",
+    "psql15:rebuild": "pnpm run postgres15:rebuild",
+
+    "up": "pnpm run mssql19 && pnpm run postgres12",
+    "down": "pnpm run mssql19:down && pnpm run postgres12:down",
+    "rebuild": "pnpm run down && pnpm run up"
   }
 }
