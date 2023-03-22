@@ -1,11 +1,11 @@
-version: '3.9'
+version: "3.9"
 services:
   mssql_2019:
-    image: 'mcr.microsoft.com/mssql/server:2019-latest'
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
     container_name: mssql_server
     user: root
     ports:
-      - '1433:1433'
+      - "${MSSQL_PORT}:1433"
     volumes:
       - ${MSSQL_VOLUME_PATH}:/var/opt/mssql
       - ${SHARED_FILES_VOLUME_PATH}:/var/opt/share

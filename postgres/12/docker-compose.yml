@@ -1,10 +1,10 @@
-version: '3.6'
+version: "3.6"
 services:
   postgres_12:
     image: postgres:12
-    container_name: dockerPostgres
+    container_name: postgres12
     ports:
-      - '5432:5432'
+      - "${POSTGRES_PORT}:5432"
     volumes:
       - ${PG_VOLUME_PATH}:/var/lib/postgresql/data
     restart: always
