@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  redis:
+    image: redis:7
+    container_name: redis7
+    ports:
+      - "${REDIS_PORT}:6379"
+    volumes:
+      - ${REDIS_VOLUME_PATH}:/data
+    restart: always

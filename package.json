@@ -19,6 +19,10 @@
     "postgres15:down": "docker-compose -p 'psql15_db' -f postgres/15/docker-compose.yml down",
     "psql15:down": "pnpm run postgres15:down",
     "postgres15:rebuild": "pnpm run postgres15:down && pnpm run postgres15",
-    "psql15:rebuild": "pnpm run postgres15:rebuild"
+    "psql15:rebuild": "pnpm run postgres15:rebuild",
+
+    "redis7": "docker-compose -p 'redis7_db' -f redis/7/docker-compose.yml up -d",
+    "redis7:down": "docker-compose -p 'redis7_db' -f redis/7/docker-compose.yml down",
+    "redis7:rebuild": "pnpm run redis7:down && pnpm run redis7"
   }
 }
