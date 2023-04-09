@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "docker-compose up -d",
-    "dev": "docker-compose up -d",
-    "down": "docker-compose down",
-    "rebuild": "docker-compose down && docker-compose up -d"
+    "start": "docker compose up -d",
+    "dev": "docker compose up -d",
+    "down": "docker compose down",
+    "rebuild": "docker compose down && docker-compose up -d"
   }
 }
